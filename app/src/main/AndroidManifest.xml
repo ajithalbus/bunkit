@@ -24,6 +24,10 @@
             android:name=".bunker"
             android:label="@string/title_activity_bunker" >
         </activity>
+        <activity
+            android:name=".bunkon"
+            android:label="@string/title_activity_bunkon" >
+        </activity>
     </application>
 
 </manifest>

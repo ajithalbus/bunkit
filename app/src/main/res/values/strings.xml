@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_worker">worker</string>
     <string name="title_activity_bunker">bunker</string>
+    <string name="title_activity_bunkon">bunkon</string>
 
 </resources>

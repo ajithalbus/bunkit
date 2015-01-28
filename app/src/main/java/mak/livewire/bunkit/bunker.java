@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.*;
 import android.app.*;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -18,6 +20,8 @@ public class bunker extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bunker);
+        Button bunkon=(Button)findViewById(R.id.button3);
+
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
        TextView temp=( TextView)findViewById(R.id.textView6);
         Cursor c=db.rawQuery("select * from subs",null);
@@ -25,6 +29,15 @@ public class bunker extends ActionBarActivity {
           c.moveToLast();
         //c.moveToPrevious();
        Log.d("CI",c.getString(1));
+
+        bunkon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(getApplicationContext(),bunkon.class);
+                startActivity(i);
+            }
+        });
+
     }
 
 
