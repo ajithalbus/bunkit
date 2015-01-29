@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -17,6 +18,7 @@ public class bunkon extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bunkon);
+        Button bunkon=(Button)findViewById(R.id.button6); // start here
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
         RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
         RadioButton [] rb=new RadioButton[15];
@@ -25,12 +27,13 @@ public class bunkon extends ActionBarActivity {
         int i,n=c.getCount();
         c.moveToFirst();
         for(i=0;i<n;i++)
-        {rb[i]=new RadioButton(this);
-            rg.addView(rb[i]);
-            rb[i].setText(c.getString(1));
+        {rb[i]=new RadioButton(this); // initiates buttones
+            rg.addView(rb[i]); // add buttons to view
+            rb[i].setText(c.getString(1)); // put text in button
 c.moveToNext();
 
         }
+
 
     }
 
