@@ -28,6 +28,10 @@
             android:name=".bunkon"
             android:label="@string/title_activity_bunkon" >
         </activity>
+        <activity
+            android:name=".record"
+            android:label="@string/title_activity_record" >
+        </activity>
     </application>
 
 </manifest>

@@ -4,12 +4,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 
 public class bunkon extends ActionBarActivity {
@@ -20,10 +23,10 @@ public class bunkon extends ActionBarActivity {
         setContentView(R.layout.activity_bunkon);
         Button bunkon=(Button)findViewById(R.id.button6); // start here
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
-        RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
+        final RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
         RadioButton [] rb=new RadioButton[15];
-        RelativeLayout rl=(RelativeLayout)findViewById(R.id.rl);
-        Cursor c=db.rawQuery("select * from subs",null);
+      //  RelativeLayout rl=(RelativeLayout)findViewById(R.id.rl);
+       final Cursor c=db.rawQuery("select * from subs",null);
         int i,n=c.getCount();
         c.moveToFirst();
         for(i=0;i<n;i++)
@@ -33,6 +36,24 @@ public class bunkon extends ActionBarActivity {
 c.moveToNext();
 
         }
+
+        bunkon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int val=rg.getCheckedRadioButtonId()-1; // returns from 1 , not 0  therfor -1
+               c.moveToPosition(val);
+                //Toast.makeText(getApplicationContext(),Integer.toString(val),Toast.LENGTH_SHORT).show();
+// bunk recording down
+                db.execSQL("insert into bunkdb values ( date('now') ,  "+ Integer.toString(val)+ "); "); // some prob here, workin now//
+                //Cursor k= db.rawQuery("select * from bunkdb",null);
+                //k.moveToLast(); // continoue here
+                Toast.makeText(getApplicationContext(),"bunking"+ c.getString(1)+"Success",Toast.LENGTH_SHORT).show(); //
+                Toast.makeText(getApplicationContext(),"Click Back or Bunk again",Toast.LENGTH_SHORT).show();
+
+                //Log.d(c.getString(1),c.getString(0));
+            }
+        });
+
 
 
     }

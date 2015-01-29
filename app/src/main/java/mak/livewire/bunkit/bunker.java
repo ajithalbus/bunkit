@@ -21,15 +21,47 @@ public class bunker extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bunker);
         Button bunkon=(Button)findViewById(R.id.button3);
-
+        Button exit=(Button)findViewById(R.id.button5);
+        Button clear=(Button)findViewById(R.id.button7);
+        final Button record=(Button)findViewById(R.id.button4);
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
        TextView temp=( TextView)findViewById(R.id.textView6);
         Cursor c=db.rawQuery("select * from subs",null);
         temp.setText(Integer.toString(c.getCount()));
           c.moveToLast();
         //c.moveToPrevious();
-       Log.d("CI",c.getString(1));
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+
+
+
+
+                                
+
+
+
+               startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("return",0));//start here
+                finish();
+
+            }
+        });
+       Log.d("CI",c.getString(1));
+        record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent torecord=new Intent(getApplicationContext(),record.class);
+                startActivity(torecord);
+            }
+        });
+
+exit.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        onBackPressed();
+    }
+});
         bunkon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
