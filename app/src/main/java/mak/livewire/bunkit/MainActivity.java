@@ -33,9 +33,10 @@ TextView g;    Button ok;
         //setting.getInt("subs", 0);
         final Intent i = new Intent(getApplicationContext(), worker.class); // intent to move to worker class
 
-        Intent temp = getIntent(); // retrun from bunker
+       /* Intent temp = getIntent(); // retrun from bunker
 
         subs = temp.getIntExtra("return", 0); //return from bunker
+*/ // cleared preference in bunker so not needed anymore
 
         if(subs!=0&&!isTableExists(db,"bunkdb")) {
             i.putExtra("send",subs); // sends number of subjects

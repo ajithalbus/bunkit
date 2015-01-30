@@ -1,7 +1,13 @@
 package mak.livewire.bunkit;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +30,10 @@ public class bunkon extends ActionBarActivity {
         Button bunkon=(Button)findViewById(R.id.button6); // start here
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
         final RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
+       final NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE); // notification service new
+        final Notification notify = new Notification(R.drawable.abc_list_pressed_holo_light,"BUNK RECORDED",System.currentTimeMillis());
+       //NOTIFICATION_SERVICE);
+
         RadioButton [] rb=new RadioButton[15];
       //  RelativeLayout rl=(RelativeLayout)findViewById(R.id.rl);
        final Cursor c=db.rawQuery("select * from subs",null);
@@ -49,7 +59,12 @@ c.moveToNext();
                 //k.moveToLast(); // continoue here
                 Toast.makeText(getApplicationContext(),"bunking"+ c.getString(1)+"Success",Toast.LENGTH_SHORT).show(); //
                 Toast.makeText(getApplicationContext(),"Click Back or Bunk again",Toast.LENGTH_SHORT).show();
-
+Context con = bunkon.this;
+                String title="New Bunk Record";
+                String detail="bunking"+ c.getString(1)+"Success";
+                PendingIntent pending = PendingIntent.getActivity(con,0,new Intent(getApplicationContext(),bunkon.class),0);
+                notify.setLatestEventInfo(con,title,detail,pending);
+                nm.notify(0,notify);
                 //Log.d(c.getString(1),c.getString(0));
             }
         });

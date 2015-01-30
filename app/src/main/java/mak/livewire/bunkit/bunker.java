@@ -39,7 +39,13 @@ public class bunker extends ActionBarActivity {
 
 
                                 
+              db.execSQL("drop table bunkdb");
+                db.execSQL("drop table subs");
+                final SharedPreferences setting= getSharedPreferences("subs",0); // get preferences
+                final SharedPreferences.Editor editor = setting.edit();
 
+                editor.putInt("subs",0);  // set current preference
+                editor.commit(); // for clearing the preference data
 
 
                startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("return",0));//start here
