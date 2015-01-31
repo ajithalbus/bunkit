@@ -8,8 +8,8 @@ android {
         applicationId "mak.livewire.bunkit"
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0"
+        versionCode 9
+        versionName "1.9"
     }
     buildTypes {
         release {
