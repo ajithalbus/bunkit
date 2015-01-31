@@ -22,7 +22,7 @@ public class bunker extends ActionBarActivity {
         setContentView(R.layout.activity_bunker);
         Button bunkon=(Button)findViewById(R.id.button3);
         Button exit=(Button)findViewById(R.id.button5);
-        Button clear=(Button)findViewById(R.id.button7);
+        //Button clear=(Button)findViewById(R.id.button7);
         final Button record=(Button)findViewById(R.id.button4);
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
        TextView temp=( TextView)findViewById(R.id.textView6);
@@ -30,10 +30,9 @@ public class bunker extends ActionBarActivity {
         temp.setText(Integer.toString(c.getCount()));
           c.moveToLast();
         //c.moveToPrevious();
-        clear.setOnClickListener(new View.OnClickListener() {
+        /*clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
 
@@ -50,9 +49,10 @@ public class bunker extends ActionBarActivity {
 
                startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("return",0));//start here
                 finish();
-*/  // once it was doing job for clear button
+ // once it was doing job for clear button
             }
         });
+        */
        Log.d("CI",c.getString(1));
         record.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,9 +108,7 @@ exit.setOnClickListener(new View.OnClickListener() {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
         if(id==R.id.clear) {
 
             new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Clear data")

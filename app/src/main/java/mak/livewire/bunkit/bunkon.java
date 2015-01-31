@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 
 public class bunkon extends ActionBarActivity {
+    //public static int ak=0;
+    int val;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +32,10 @@ public class bunkon extends ActionBarActivity {
         Button bunkon=(Button)findViewById(R.id.button6); // start here
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
         final RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
-       final NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE); // notification service new
-        final Notification notify = new Notification(R.drawable.abc_list_pressed_holo_light,"BUNK RECORDED",System.currentTimeMillis());
+      // final NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE); // notification service new
+        //final Notification notify = new Notification(R.drawable.abc_list_pressed_holo_light,"BUNK RECORDED",System.currentTimeMillis());
        //NOTIFICATION_SERVICE);
-
+        //notification service called off
         RadioButton [] rb=new RadioButton[15];
       //  RelativeLayout rl=(RelativeLayout)findViewById(R.id.rl);
        final Cursor c=db.rawQuery("select * from subs",null);
@@ -50,8 +52,16 @@ c.moveToNext();
         bunkon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int val=rg.getCheckedRadioButtonId()-1; // returns from 1 , not 0  therfor -1
-               c.moveToPosition(val);
+
+
+                val=(rg.getCheckedRadioButtonId()-1)%c.getCount(); // radio buttons created one on one , so
+// returns from 1 , not 0  therfor -1
+                //rg.clearCheck();
+
+
+                c.moveToPosition(val);
+//Log.d("ak",Integer.toString(ak));
+                Log.d("val",Integer.toString(rg.getCheckedRadioButtonId()-1));
                 //Toast.makeText(getApplicationContext(),Integer.toString(val),Toast.LENGTH_SHORT).show();
 // bunk recording down
                 db.execSQL("insert into bunkdb values ( date('now') ,  "+ Integer.toString(val)+ "); "); // some prob here, workin now//
@@ -59,7 +69,9 @@ c.moveToNext();
                 //k.moveToLast(); // continoue here
                 Toast.makeText(getApplicationContext(),"bunking"+ c.getString(1)+"Success",Toast.LENGTH_SHORT).show(); //
                 Toast.makeText(getApplicationContext(),"Click Back or Bunk again",Toast.LENGTH_SHORT).show();
-Context con = bunkon.this;
+
+                //below code is for notification
+                /*Context con = bunkon.this;
                 nm.cancel(0);// to cancel old notifications
                 // below are to add notification
                 String title="New Bunk Record";
@@ -67,7 +79,7 @@ Context con = bunkon.this;
                 PendingIntent pending = PendingIntent.getActivity(con,0,new Intent(getApplicationContext(),bunkon.class),0);
                 notify.setLatestEventInfo(con,title,detail,pending);
 
-                nm.notify(0,notify);
+                nm.notify(0,notify);*/
                 //Log.d(c.getString(1),c.getString(0));
             }
         });
@@ -85,6 +97,14 @@ Context con = bunkon.this;
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
+        finish();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -92,9 +112,7 @@ Context con = bunkon.this;
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
