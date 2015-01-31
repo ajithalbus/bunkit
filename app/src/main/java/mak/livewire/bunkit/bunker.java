@@ -93,7 +93,6 @@ exit.setOnClickListener(new View.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
 
-
                         finish();
 
                     }
@@ -101,6 +100,7 @@ exit.setOnClickListener(new View.OnClickListener() {
     }
 
     @Override
+
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -111,6 +111,23 @@ exit.setOnClickListener(new View.OnClickListener() {
         if (id == R.id.action_settings) {
             return true;
         }
+        if(id==R.id.clear) {
+
+            final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
+            db.execSQL("drop table bunkdb");
+            db.execSQL("drop table subs");
+            final SharedPreferences setting= getSharedPreferences("subs",0); // get preferences
+            final SharedPreferences.Editor editor = setting.edit();
+
+            editor.putInt("subs",0);  // set current preference
+            editor.commit(); // for clearing the preference data
+
+
+            startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("return",0));//start here
+            finish();
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

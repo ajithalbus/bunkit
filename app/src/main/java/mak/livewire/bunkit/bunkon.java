@@ -60,10 +60,13 @@ c.moveToNext();
                 Toast.makeText(getApplicationContext(),"bunking"+ c.getString(1)+"Success",Toast.LENGTH_SHORT).show(); //
                 Toast.makeText(getApplicationContext(),"Click Back or Bunk again",Toast.LENGTH_SHORT).show();
 Context con = bunkon.this;
+                nm.cancel(0);// to cancel old notifications
+                // below are to add notification
                 String title="New Bunk Record";
                 String detail="bunking"+ c.getString(1)+"Success";
                 PendingIntent pending = PendingIntent.getActivity(con,0,new Intent(getApplicationContext(),bunkon.class),0);
                 notify.setLatestEventInfo(con,title,detail,pending);
+
                 nm.notify(0,notify);
                 //Log.d(c.getString(1),c.getString(0));
             }
