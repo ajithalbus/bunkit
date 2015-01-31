@@ -39,7 +39,7 @@ public class bunker extends ActionBarActivity {
 
 
                                 
-              db.execSQL("drop table bunkdb");
+            /*  db.execSQL("drop table bunkdb");
                 db.execSQL("drop table subs");
                 final SharedPreferences setting= getSharedPreferences("subs",0); // get preferences
                 final SharedPreferences.Editor editor = setting.edit();
@@ -50,7 +50,7 @@ public class bunker extends ActionBarActivity {
 
                startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("return",0));//start here
                 finish();
-
+*/  // once it was doing job for clear button
             }
         });
        Log.d("CI",c.getString(1));
@@ -113,18 +113,31 @@ exit.setOnClickListener(new View.OnClickListener() {
         }
         if(id==R.id.clear) {
 
-            final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
-            db.execSQL("drop table bunkdb");
-            db.execSQL("drop table subs");
-            final SharedPreferences setting= getSharedPreferences("subs",0); // get preferences
-            final SharedPreferences.Editor editor = setting.edit();
+            new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Clear data")
+                    .setMessage("Are you sure wanna clear data?")
+                    .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-            editor.putInt("subs",0);  // set current preference
-            editor.commit(); // for clearing the preference data
+                            final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
+                            db.execSQL("drop table bunkdb");
+                            db.execSQL("drop table subs");
+                            final SharedPreferences setting= getSharedPreferences("subs",0); // get preferences
+                            final SharedPreferences.Editor editor = setting.edit();
+
+                            editor.putInt("subs",0);  // set current preference
+                            editor.commit(); // for clearing the preference data
 
 
-            startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("return",0));//start here
-            finish();
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("return",0));//start here
+                            finish();
+
+
+
+                        }
+                    }).setNegativeButton("no", null).show();
+
+
             return true;
         }
 

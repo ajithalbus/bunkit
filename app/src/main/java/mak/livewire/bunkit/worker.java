@@ -71,6 +71,7 @@ String tem="";
                         db.execSQL("insert into subs values ( " + Integer.toString(i) + ", ' " + ks + " ' )");
 
                     }
+
                     /*db.execSQL("insert into bunkdb values(datetime('2014-12-12 12:34:23.876'),1);");
                     //db.execSQL("insert into bunkdb values(datetime('2015-12-12 12:34:23.876'),1)");
 
@@ -89,10 +90,15 @@ String tem="";
                     finish();
 
                 }
-                sname.setHint("Subject "+String.valueOf(subs-j+2));
+
                 if(j==2) next.setText("Finish");
 
                 tem=sname.getText().toString();
+                if(tem.length()==0) // to cheak if not a valid name is enterd working
+                {Toast.makeText(getApplicationContext(),"Enter valid name",Toast.LENGTH_SHORT).show();
+                return;}
+
+                sname.setHint("Subject "+String.valueOf(subs-j+2)); // sub 1 , sub 2 lik that
                 tit.add(tem);
 
                //Log.d("","tilhere");
