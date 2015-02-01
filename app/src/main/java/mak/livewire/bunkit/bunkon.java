@@ -31,7 +31,7 @@ public class bunkon extends ActionBarActivity {
         setContentView(R.layout.activity_bunkon);
         Button bunkon=(Button)findViewById(R.id.button6); // start here
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
-        final RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
+        RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
       // final NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE); // notification service new
         //final Notification notify = new Notification(R.drawable.abc_list_pressed_holo_light,"BUNK RECORDED",System.currentTimeMillis());
        //NOTIFICATION_SERVICE);
@@ -42,7 +42,7 @@ public class bunkon extends ActionBarActivity {
         int i,n=c.getCount();
         c.moveToFirst();
         for(i=0;i<n;i++)
-        {rb[i]=new RadioButton(this); // initiates buttones
+        {rb[i]=new RadioButton(this); // initiates buttons
             rg.addView(rb[i]); // add buttons to view
             rb[i].setText(c.getString(1)); // put text in button
 c.moveToNext();
@@ -53,15 +53,23 @@ c.moveToNext();
             @Override
             public void onClick(View v) {
 
+                RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
+                //below produces more counts
+                RadioButton temp=(RadioButton)findViewById(rg.getCheckedRadioButtonId()); // temp = clickd button id , for each button clicked
+                String kit=temp.getText().toString(); // get string from radio button temp
+                Cursor t = db.rawQuery("select code from subs where sub ='" + kit + "'",null); // retrive the code(subject code) of the kit(string) from subs
 
-                val=(rg.getCheckedRadioButtonId()-1)%c.getCount(); // radio buttons created one on one , so
+                t.moveToFirst();
+               // val=(rg.getCheckedRadioButtonId()-1);//%c.getCount(); // radio buttons created one on one , so
 // returns from 1 , not 0  therfor -1
                 //rg.clearCheck();
-
+                val=t.getInt(0);
+                Log.d("val",Integer.toString(val));
 
                 c.moveToPosition(val);
+
 //Log.d("ak",Integer.toString(ak));
-                Log.d("val",Integer.toString(rg.getCheckedRadioButtonId()-1));
+
                 //Toast.makeText(getApplicationContext(),Integer.toString(val),Toast.LENGTH_SHORT).show();
 // bunk recording down
                 db.execSQL("insert into bunkdb values ( date('now') ,  "+ Integer.toString(val)+ "); "); // some prob here, workin now//
@@ -99,6 +107,7 @@ c.moveToNext();
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
 
 
         finish();

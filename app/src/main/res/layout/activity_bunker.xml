@@ -43,8 +43,8 @@
         android:layout_height="wrap_content"
         android:text="Exit"
         android:id="@+id/button5"
+        android:layout_marginBottom="76dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="104dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
