@@ -48,6 +48,7 @@ public class bunkon extends ActionBarActivity {
 c.moveToNext();
 
         }
+        //rg.check(1);
 
         bunkon.setOnClickListener(new View.OnClickListener() {
             @Override

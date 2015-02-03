@@ -8,5 +8,6 @@
     <string name="title_activity_bunker">bunker</string>
     <string name="title_activity_bunkon">bunkon</string>
     <string name="title_activity_record">record</string>
+    <string name="title_activity_details">details</string>
 
 </resources>
