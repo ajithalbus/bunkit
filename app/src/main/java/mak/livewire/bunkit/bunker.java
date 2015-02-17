@@ -22,6 +22,7 @@ public class bunker extends ActionBarActivity {
         setContentView(R.layout.activity_bunker);
         Button bunkon=(Button)findViewById(R.id.button3);
         Button exit=(Button)findViewById(R.id.button5);
+        final Button details=(Button)findViewById(R.id.button7);
         //Button clear=(Button)findViewById(R.id.button7);
         final Button record=(Button)findViewById(R.id.button4);
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
@@ -59,6 +60,14 @@ public class bunker extends ActionBarActivity {
             public void onClick(View v) {
             Intent torecord=new Intent(getApplicationContext(),record.class);
                 startActivity(torecord);
+            }
+        });
+
+
+        details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),details.class));
             }
         });
 

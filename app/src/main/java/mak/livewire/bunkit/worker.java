@@ -53,7 +53,7 @@ ArrayList<String> tit= new ArrayList<String>(); // to get list of subjects
             @Override
             public void onClick(View v) {
 String tem="";
-                if(j==1) {Toast.makeText(getApplicationContext(),"DONE",Toast.LENGTH_LONG).show();
+                if(j==1) {
                     db.execSQL("create table if not exists bunkdb (btime date , bhour number );");
                     db.execSQL("create table if not exists subs (code number ,sub varchar(20));");
                     db.execSQL("delete from subs");
@@ -62,6 +62,16 @@ String tem="";
 
                     //tit.add(tem);
                     tem=sname.getText().toString();
+
+                    if(tem.length()==0) // to cheak if not a valid name is enterd working
+                    {Toast.makeText(getApplicationContext(),"Enter valid name",Toast.LENGTH_SHORT).show();
+                        return;}
+                    if(tit.contains(tem))// to check if sub already exists
+                    {Toast.makeText(getApplicationContext(),"Subject Already exists",Toast.LENGTH_SHORT).show();
+                        return;
+
+                    }
+
                     tit.add(tem);
                     //Log.d("subs",Integer.toString(tit.size()));
                     String ks;
@@ -83,7 +93,7 @@ String tem="";
                     */
 
                     db.close();
-
+                    Toast.makeText(getApplicationContext(),"DONE",Toast.LENGTH_LONG).show();
                     Intent j=new Intent(getApplicationContext(),bunker.class); // start bunker activity
                     startActivity(j);
 
@@ -97,6 +107,11 @@ String tem="";
                 if(tem.length()==0) // to cheak if not a valid name is enterd working
                 {Toast.makeText(getApplicationContext(),"Enter valid name",Toast.LENGTH_SHORT).show();
                 return;}
+                if(tit.contains(tem))// to check if sub already exists
+                {Toast.makeText(getApplicationContext(),"Subject Already exists",Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
 
                 sname.setHint("Subject "+String.valueOf(subs-j+2)); // sub 1 , sub 2 lik that
                 tit.add(tem);

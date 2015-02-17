@@ -61,6 +61,7 @@ startActivity(i);
         g.setText("@mak");
         t= (EditText)findViewById(R.id.editText);
         ok= (Button)findViewById(R.id.button);
+
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +69,8 @@ startActivity(i);
 int temp;
                // temp=t1.getValue();
                 temp=Integer.parseInt(t.getText().toString());
-                if(temp>=0&&temp<=15)         // no of subs >0 and <15
+
+                if(temp>0&&temp<=15)         // no of subs 0 and <15
                 {    i.putExtra("send",temp); // set preference to intent variable
                 editor.putInt("subs",temp);  // set current preference
                 editor.commit();
