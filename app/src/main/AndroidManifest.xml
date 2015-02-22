@@ -33,8 +33,12 @@
             android:label="Bunkit" >
         </activity>
         <activity
-            android:name=".details"
-            android:label="@string/title_activity_details" >
+            android:name=".detail"
+            android:label="@string/title_activity_detail" >
+        </activity>
+        <activity
+            android:name=".list"
+            android:label="list" >
         </activity>
     </application>
 
