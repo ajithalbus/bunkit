@@ -3,4 +3,4 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context="mak.livewire.bunkit.bunker">
 
     <item android:id="@+id/clear" android:title="Clear data"/>
-</menu>
+    <item android:id="@+id/about" android:title="About"/> </menu>

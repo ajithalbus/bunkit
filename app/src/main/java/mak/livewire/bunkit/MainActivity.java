@@ -57,8 +57,8 @@ startActivity(i);
             finish();
         // for bunker class if table already exists
         }
-        g=(TextView)findViewById(R.id.textView2);
-        g.setText("@mak");
+       // g=(TextView)findViewById(R.id.textView2);
+        //g.setText("@mak");
         t= (EditText)findViewById(R.id.editText);
         ok= (Button)findViewById(R.id.button);
 

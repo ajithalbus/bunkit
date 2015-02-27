@@ -1,0 +1,156 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/bg"
+    tools:context="mak.livewire.bunkit.bunker"
+    >
+
+    <TextView
+        android:id="@+id/tabletext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Day of the Week"/>
+    "
+
+    <Button
+        android:id="@+id/tabbutton1"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tabletext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Period I" />
+
+    <Button
+        android:id="@+id/tabper1"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tabletext"
+        android:layout_toRightOf="@id/tabbutton1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="1111111"/>"
+
+    <Button
+        android:id="@+id/tabbutton2"
+        android:layout_below="@id/tabbutton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Period II"/>
+
+    <Button
+        android:id="@+id/tabper2"
+        android:layout_below="@id/tabper1"
+        android:layout_toRightOf="@id/tabbutton2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="1111111"/>
+
+    <Button
+        android:id="@+id/tabbutton3"
+        android:layout_below="@id/tabbutton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Period III"/>
+
+    <Button
+        android:id="@+id/tabper3"
+        android:layout_below="@id/tabper2"
+        android:layout_toRightOf="@id/tabbutton3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="1111111"/>
+
+
+    <Button
+        android:id="@+id/tabbutton4"
+        android:layout_below="@id/tabbutton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Period IV"/>
+
+    <Button
+        android:id="@+id/tabper4"
+        android:layout_below="@id/tabper3"
+        android:layout_toRightOf="@id/tabbutton4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="1111111"/>
+
+
+    <Button
+        android:id="@+id/tabbutton5"
+        android:layout_below="@id/tabbutton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Period V"/>
+
+    <Button
+        android:id="@+id/tabper5"
+        android:layout_below="@id/tabper4"
+        android:layout_toRightOf="@id/tabbutton5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="1111111"/>
+
+    <Button
+        android:id="@+id/tabbutton6"
+        android:layout_below="@id/tabbutton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Period VI"/>
+
+    <Button
+        android:id="@+id/tabper6"
+        android:layout_below="@id/tabper5"
+        android:layout_toRightOf="@id/tabbutton6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="1111111"/>
+
+    <Button
+        android:id="@+id/tabbutton7"
+        android:layout_below="@id/tabbutton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Period VII"/>
+
+    <Button
+        android:id="@+id/tabper7"
+        android:layout_below="@id/tabper6"
+        android:layout_toRightOf="@id/tabbutton7"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="1111111"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calibrate"
+        android:id="@+id/button8"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/tabper7"
+        android:layout_centerHorizontal="true" />
+
+
+    "
+
+</RelativeLayout>

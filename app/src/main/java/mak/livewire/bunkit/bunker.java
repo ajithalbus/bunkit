@@ -22,7 +22,7 @@ public class bunker extends ActionBarActivity {
         setContentView(R.layout.activity_bunker);
         Button bunkon=(Button)findViewById(R.id.button3);
         Button exit=(Button)findViewById(R.id.button5);
-       // final Button details=(Button)findViewById(R.id.button7); //change to 7 when details added
+       final Button tt=(Button)findViewById(R.id.button7); //change to 7 when details added
         //Button =(Button)findViewById(R.id.button7);
         final Button record=(Button)findViewById(R.id.button4);
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
@@ -65,7 +65,12 @@ public class bunker extends ActionBarActivity {
 
 
 
-
+tt.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(getApplicationContext(),Table.class));
+    }
+});
 exit.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -112,7 +117,11 @@ exit.setOnClickListener(new View.OnClickListener() {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+if(id==R.id.about)
 
+{
+    startActivity(new Intent(getApplicationContext(),About.class));
+}
         if(id==R.id.clear) {
 
             new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Clear data")
@@ -130,6 +139,10 @@ exit.setOnClickListener(new View.OnClickListener() {
                             editor.putInt("subs",0);  // set current preference
                             editor.commit(); // for clearing the preference data
 
+
+                            SharedPreferences sharepref =getSharedPreferences("Periods", Context.MODE_APPEND);
+                            SharedPreferences.Editor edito = sharepref.edit();
+                            edito.clear().commit();
 
                             startActivity(new Intent(getApplicationContext(),MainActivity.class).putExtra("return",0));//start here
                             finish();

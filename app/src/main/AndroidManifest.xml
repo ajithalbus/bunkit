@@ -18,19 +18,30 @@
         </activity>
         <activity
             android:name=".worker"
-            android:label="Bunkit" >
+            android:label="BunkTable" >
         </activity>
         <activity
             android:name=".bunker"
-            android:label="Bunkit" >
+            android:label="BunkTable" >
         </activity>
         <activity
             android:name=".bunkon"
-            android:label="Bunkit" >
+            android:label="BunkTable" >
         </activity>
         <activity
             android:name=".record"
-            android:label="Bunkit" >
+            android:label="BunkTable" >
+        </activity>
+        <activity
+            android:name=".Table"
+            android:label="BunkTable" />
+        <activity
+            android:name=".Calibrate"
+            android:label="BunkTable" >
+        </activity>
+        <activity
+            android:name=".About"
+            android:label="@string/title_activity_about" >
         </activity>
     </application>
 
