@@ -108,7 +108,7 @@ cali.setOnClickListener(new View.OnClickListener() {
         Button perbut4 = (Button) findViewById(R.id.tabper4);
         Button perbut5 = (Button) findViewById(R.id.tabper5);
         Button perbut6 = (Button) findViewById(R.id.tabper6);
-        Button perbut7 = (Button) findViewById(R.id.tabper7);
+       // Button perbut7 = (Button) findViewById(R.id.tabper7);
 
         switch(day)
         {
@@ -128,7 +128,7 @@ cali.setOnClickListener(new View.OnClickListener() {
 
                 perbut6.setText("Holiday......");
 
-                perbut7.setText("Holiday......");
+                //perbut7.setText("Holiday......");
 
                 break;
             case 2:
@@ -147,7 +147,7 @@ cali.setOnClickListener(new View.OnClickListener() {
 
                 perbut6.setText(test.getString("monper6", "Not Set"));
 
-                perbut7.setText(test.getString("monper7", "Not Set"));
+               // perbut7.setText(test.getString("monper7", "Not Set"));
 
                 break;
             case 3:
@@ -166,7 +166,7 @@ cali.setOnClickListener(new View.OnClickListener() {
 
                 perbut6.setText(test.getString("tuesper6", "Not Set"));
 
-                perbut7.setText(test.getString("tuesper7", "Not Set"));
+               // perbut7.setText(test.getString("tuesper7", "Not Set"));
 
                 break;
             case 4:
@@ -185,7 +185,7 @@ cali.setOnClickListener(new View.OnClickListener() {
 
                 perbut6.setText(test.getString("wednesper6", "Not Set"));
 
-                perbut7.setText(test.getString("wednesper7", "Not Set"));
+             //   perbut7.setText(test.getString("wednesper7", "Not Set"));
 
                 break;
             case 5:
@@ -204,7 +204,7 @@ cali.setOnClickListener(new View.OnClickListener() {
 
                 perbut6.setText(test.getString("thursper6", "Not Set"));
 
-                perbut7.setText(test.getString("thursper7", "Not Set"));
+               // perbut7.setText(test.getString("thursper7", "Not Set"));
                 break;
             case 6:
                 Toast.makeText(this, "Friday", Toast.LENGTH_SHORT).show();
@@ -222,7 +222,7 @@ cali.setOnClickListener(new View.OnClickListener() {
 
                 perbut6.setText(test.getString("friper6", "Not Set"));
 
-                perbut7.setText(test.getString("friper7", "Not Set"));
+              //  perbut7.setText(test.getString("friper7", "Not Set"));
 
                 break;
             case 7:
@@ -241,7 +241,7 @@ cali.setOnClickListener(new View.OnClickListener() {
 
                 perbut6.setText(test.getString("saturper6", "Not Set"));
 
-                perbut7.setText(test.getString("saturper7", "Not Set"));
+              //  perbut7.setText(test.getString("saturper7", "Not Set"));
 
                 break;
         }

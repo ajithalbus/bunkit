@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Bunkit.iml" filepath="$PROJECT_DIR$/Bunkit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bunkit.iml" filepath="$PROJECT_DIR$/bunkit.iml" />
     </modules>
   </component>
 </project>

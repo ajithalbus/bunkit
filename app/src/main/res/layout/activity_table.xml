@@ -125,30 +125,13 @@
         android:text="1111111"/>
 
     <Button
-        android:id="@+id/tabbutton7"
-        android:layout_below="@id/tabbutton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="?android:attr/borderlessButtonStyle"
-        android:text="Period VII"/>
-
-    <Button
-        android:id="@+id/tabper7"
-        android:layout_below="@id/tabper6"
-        android:layout_toRightOf="@id/tabbutton7"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="?android:attr/borderlessButtonStyle"
-        android:text="1111111"/>
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calibrate"
         android:id="@+id/button8"
         android:layout_marginTop="46dp"
-        android:layout_below="@+id/tabper7"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tabper6" />
 
 
     "

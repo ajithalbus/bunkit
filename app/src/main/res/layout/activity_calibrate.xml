@@ -131,20 +131,10 @@
             android:layout_marginTop="12dp"
             android:hint="Period VI"/>
 
-        <EditText
-            android:id="@+id/caliedit7"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/caliedit6"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="12dp"
-            android:hint="Period VII"/>
-
         <Button
             android:id="@+id/savebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/caliedit7"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"

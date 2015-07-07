@@ -21,14 +21,15 @@ public class bunker extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bunker);
         Button bunkon=(Button)findViewById(R.id.button3);
-        Button exit=(Button)findViewById(R.id.button5);
+       // Button exit=(Button)findViewById(R.id.button5);
        final Button tt=(Button)findViewById(R.id.button7); //change to 7 when details added
         //Button =(Button)findViewById(R.id.button7);
         final Button record=(Button)findViewById(R.id.button4);
+        final Button unbunk=(Button)findViewById(R.id.button5);
         final SQLiteDatabase db=openOrCreateDatabase("mydb",MODE_PRIVATE,null);
-       TextView temp=( TextView)findViewById(R.id.textView6);
+      // TextView temp=( TextView)findViewById(R.id.textView6);
         Cursor c=db.rawQuery("select * from subs",null);
-        temp.setText(Integer.toString(c.getCount()));
+        //temp.setText(Integer.toString(c.getCount()));
           c.moveToLast();
         //c.moveToPrevious();
         /*clear.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +64,12 @@ public class bunker extends ActionBarActivity {
             }
         });
 
-
+unbunk.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(getApplicationContext(),unbunk.class));
+    }
+});
 
 tt.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -71,12 +77,7 @@ tt.setOnClickListener(new View.OnClickListener() {
         startActivity(new Intent(getApplicationContext(),Table.class));
     }
 });
-exit.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        onBackPressed();
-    }
-});
+
         bunkon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

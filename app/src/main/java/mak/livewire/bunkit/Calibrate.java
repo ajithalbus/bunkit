@@ -42,7 +42,7 @@ public class Calibrate extends Activity {
         et4 = (EditText) findViewById(R.id.caliedit4);
         et5 = (EditText) findViewById(R.id.caliedit5);
         et6 = (EditText) findViewById(R.id.caliedit6);
-        et7 = (EditText) findViewById(R.id.caliedit7);
+       // et7 = (EditText) findViewById(R.id.caliedit7);
 
 
         et1.setText("");
@@ -112,7 +112,7 @@ public class Calibrate extends Activity {
         et4 = (EditText) findViewById(R.id.caliedit4);
         et5 = (EditText) findViewById(R.id.caliedit5);
         et6 = (EditText) findViewById(R.id.caliedit6);
-        et7 = (EditText) findViewById(R.id.caliedit7);
+      //  et7 = (EditText) findViewById(R.id.caliedit7);
 
 
 
@@ -273,7 +273,7 @@ public class Calibrate extends Activity {
         et4 = (EditText) findViewById(R.id.caliedit4);
         et5 = (EditText) findViewById(R.id.caliedit5);
         et6 = (EditText) findViewById(R.id.caliedit6);
-        et7 = (EditText) findViewById(R.id.caliedit7);
+       // et7 = (EditText) findViewById(R.id.caliedit7);
 
 
         if(findViewById(R.id.calilayer1).isShown())
