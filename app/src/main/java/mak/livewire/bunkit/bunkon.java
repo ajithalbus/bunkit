@@ -73,7 +73,7 @@ c.moveToNext();
 
                 //Toast.makeText(getApplicationContext(),Integer.toString(val),Toast.LENGTH_SHORT).show();
 // bunk recording down
-                db.execSQL("insert into bunkdb values ( date('now') ,  "+ Integer.toString(val)+ "); "); // some prob here, workin now//
+                db.execSQL("insert into bunkdb(btime,bhour) values ( date('now') ,  "+ Integer.toString(val)+ "); "); // some prob here, workin now//
                 //Cursor k= db.rawQuery("select * from bunkdb",null);
                 //k.moveToLast(); // continoue here
                 Toast.makeText(getApplicationContext(),"bunking"+ c.getString(1)+"Success",Toast.LENGTH_SHORT).show(); //

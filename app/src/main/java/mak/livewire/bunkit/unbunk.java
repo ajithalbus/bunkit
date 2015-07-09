@@ -46,7 +46,7 @@ int val;
             @Override
             public void onClick(View v) {
 
-                RadioGroup rg=(RadioGroup)findViewById(R.id.rg);
+                RadioGroup rg=(RadioGroup)findViewById(R.id.rgunbunk);
                 //below produces more counts
                 RadioButton temp=(RadioButton)findViewById(rg.getCheckedRadioButtonId()); // temp = clickd button id , for each button clicked
                 String kit=temp.getText().toString(); // get string from radio button temp
@@ -66,14 +66,15 @@ int val;
                 //Toast.makeText(getApplicationContext(),Integer.toString(val),Toast.LENGTH_SHORT).show();
 // bunk recording down
 
-Cursor last=db.rawQuery("select * from bunkdb where bhour="+ Integer.toString(val)+";",null);
+Cursor last=db.rawQuery("select bnp from bunkdb where bhour="+ Integer.toString(val)+";",null);
                 last.moveToLast();
-                
-                db.execSQL("insert into bunkdb values ( date('now') ,  "+ Integer.toString(val)+ "); "); // some prob here, workin now//
+int bindex=last.getInt(0);
+                db.execSQL("delete from bunkdb where bnp="+bindex+";");
+               // db.execSQL("insert into bunkdb values ( date('now') ,  "+ Integer.toString(val)+ "); "); // some prob here, workin now//
                 //Cursor k= db.rawQuery("select * from bunkdb",null);
                 //k.moveToLast(); // continoue here
-                Toast.makeText(getApplicationContext(), "bunking" + c.getString(1) + "Success", Toast.LENGTH_SHORT).show(); //
-                Toast.makeText(getApplicationContext(),"Click Back or Bunk again",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "UnBunking" + c.getString(1) + "Success", Toast.LENGTH_SHORT).show(); //
+                Toast.makeText(getApplicationContext(),"Click Back or UnBunk again",Toast.LENGTH_SHORT).show();
 
 
             }

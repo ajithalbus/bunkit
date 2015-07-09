@@ -54,7 +54,7 @@ ArrayList<String> tit= new ArrayList<String>(); // to get list of subjects
             public void onClick(View v) {
 String tem="";
                 if(j==1) {
-                    db.execSQL("create table if not exists bunkdb (btime date , bhour number );");
+                    db.execSQL("create table if not exists bunkdb (btime date , bhour number ,bnp integer PRIMARY KEY   AUTOINCREMENT );");
                     db.execSQL("create table if not exists subs (code number ,sub varchar(20));");
                     db.execSQL("delete from subs");
                     db.execSQL("delete from bunkdb");
